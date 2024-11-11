@@ -32,5 +32,5 @@ CMD influxd & \
         echo "Waiting for InfluxDB to be ready..."; \
         sleep 2; \
     done && \
-    influx -execute "CREATE DATABASE PowerMonitorDatabase" && \
+    influx -execute "CREATE DATABASE IF NOT EXISTS PowerMonitorDatabase" && \
 	wait
