@@ -1,6 +1,10 @@
 # Use the official InfluxDB 1.8.10 image as a base
 FROM influxdb:1.8.10
 
+# Define build arguments for credentials
+ARG INFLUXDB_USER
+ARG INFLUXDB_PASSWORD
+
 # Set environment variables to configure InfluxDB on startup
 ENV INFLUXDB_DB=PowerMonitorDatabase
 ENV INFLUXDB_HTTP_FLUX_ENABLED=true
