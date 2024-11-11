@@ -32,5 +32,10 @@ CMD influxd & \
         echo "Waiting for InfluxDB to be ready..."; \
         sleep 2; \
     done && \
-    influx -execute "CREATE DATABASE IF NOT EXISTS PowerMonitorDatabase" && \
-	wait
+    if ! curl -G http://localhost:8086/query --data-urlencode "q=SHOW DATABASES" | grep -q "\"PowerMonitorDatabase\""; then \
+        influx -execute "CREATE DATABASE PowerMonitorDatabase"; \
+        echo "Database PowerMonitorDatabase created."; \
+    else \
+        echo "Database PowerMonitorDatabase already exists."; \
+    fi && \
+    wait
