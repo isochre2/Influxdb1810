@@ -45,3 +45,6 @@ jobs:
           platforms: linux/arm/v7,linux/amd64
           push: true
           tags: isochre/influxdb1810:latest
+          build-args: |
+              INFLUXDB_USER=${{ secrets.INFLUXDB_USER }}
+              INFLUXDB_PASSWORD=${{ secrets.INFLUXDB_PASSWORD }}
