@@ -14,7 +14,7 @@ ENV DOCKER_INFLUXDB_INIT_ORG=CompagniePDC
 ENV DOCKER_INFLUXDB_INIT_BUCKET=PowerMonitoringBucket
 
 # Create directories for InfluxDB data and config
-RUN mkdir -p /var/lib/influxdb1810 /etc/influxdb1810
+#RUN mkdir -p /var/lib/influxdb1810 /etc/influxdb1810
 
 # Use volumes for data and config to persist data between container restarts
 #VOLUME /var/lib/influxdb1810
