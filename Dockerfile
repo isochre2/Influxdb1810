@@ -17,8 +17,8 @@ ENV DOCKER_INFLUXDB_INIT_BUCKET=PowerMonitoringBucket
 RUN mkdir -p /var/lib/influxdb1810 /etc/influxdb1810
 
 # Use volumes for data and config to persist data between container restarts
-VOLUME /var/lib/influxdb1810
-VOLUME /etc/influxdb1810
+#VOLUME /var/lib/influxdb1810
+#VOLUME /etc/influxdb1810
 
 # Copy the InfluxDB configuration file (optional if you need a custom config file)
 # COPY influxdb.conf /etc/influxdb/influxdb.conf
