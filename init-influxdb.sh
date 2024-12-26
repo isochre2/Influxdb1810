@@ -15,8 +15,8 @@ else
 fi
 
 # Set up retention policies
-influx -execute "CREATE RETENTION POLICY \"one_hour\" ON \"PowerMonitorDatabase\" DURATION 1h REPLICATION 1 DEFAULT"
-echo "Retention policy 'one_hour' set on PowerMonitorDatabase."
+influx -execute "CREATE RETENTION POLICY \"one_hour\" ON \"PowerMonitorDatabase\" DURATION 1m REPLICATION 1 DEFAULT"
+echo "Retention policy 'one_hour' debug set on PowerMonitorDatabase."
 
 # Set up continuous queries (adjust these to your requirements)
 #influx -execute "CREATE CONTINUOUS QUERY \"cq_power\" ON 'PowerMonitorDatabase' BEGIN SELECT mean(\"Power\") AS avg_value INTO 'PowerMonitorDatabase'.'one_week'.'average_values' FROM 'measurement_name' GROUP BY time(1h) END"
