@@ -14,10 +14,10 @@ ARG INFLUXDB_PASSWORD
 #ENV DOCKER_INFLUXDB_INIT_BUCKET=PowerMonitoringBucket
 
 # Copy the init script into the container
-#COPY init-influxdb.sh /docker-entrypoint-initdb.d/init-influxdb.sh
+COPY init-influxdb.sh /docker-entrypoint-initdb.d/init-influxdb.sh
 
 # Ensure the script is executable
-#RUN chmod +x /docker-entrypoint-initdb.d/init-influxdb.sh
+RUN chmod +x /docker-entrypoint-initdb.d/init-influxdb.sh
 
 # Use the default CMD from the InfluxDB image
 CMD ["influxd"]
