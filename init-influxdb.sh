@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Delay execution to allow InfluxDB more time to initialize
+echo "Delaying initialization script execution by 60 seconds..."
+sleep 60
+
 # Wait for InfluxDB to be ready
 until curl -s http://localhost:8086/ping; do
     echo "Waiting for InfluxDB to be ready..."
