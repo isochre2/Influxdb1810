@@ -6,10 +6,6 @@ until curl -s http://127.0.0.1:8086/ping; do
     sleep 2
 done
 
-# Enable Flux
-influx -execute "SET flux-enabled = true"
-echo "Flux has been enabled."
-
 # Check if the database exists
 if ! curl -G http://127.0.0.1:8086/query --data-urlencode "q=SHOW DATABASES" | grep -q "\"PowerMonitorDatabase\""; then
     influx -execute "CREATE DATABASE PowerMonitorDatabase"

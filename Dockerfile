@@ -16,12 +16,11 @@ ENV INFLUXDB_DB=PowerMonitorDatabase
 
 
 # Copy the init script into the container
-COPY init-influxdb.sh /docker-entrypoint-initdb.d/init-influxdb.sh
-#COPY influxdb.conf /etc/influxdb/influxdb.conf
+COPY init-influxdb-custom.sh init-influxdb-custom.sh
 
 # Ensure the script is executable
-RUN chmod +x /docker-entrypoint-initdb.d/init-influxdb.sh
+RUN chmod +x init-influxdb-custom.sh
 
 # Use the default CMD from the InfluxDB image
-CMD ["sh", "-c", "influxd & ./docker-entrypoint-initdb.d/init-influxdb.sh & wait"]
+CMD ["sh", "-c", "influxd & ./init-influxdb-custom.sh & wait"]
 
