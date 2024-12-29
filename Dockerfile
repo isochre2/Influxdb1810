@@ -11,8 +11,7 @@ ENV DOCKER_INFLUXDB_INIT_USERNAME=$INFLUXDB_USER
 ENV DOCKER_INFLUXDB_INIT_PASSWORD=$INFLUXDB_PASSWORD
 ENV DOCKER_INFLUXDB_INIT_ORG=CompagniePDC
 ENV DOCKER_INFLUXDB_INIT_BUCKET=PowerMonitoringBucket
-ENV INFLUXDB_HTTP_FLUX_ENABLED=true
-ENV INFLUXDB_HTTP_AUTH_ENABLED=true
+#ENV INFLUXDB_HTTP_FLUX_ENABLED=true
 ENV INFLUXDB_DB=PowerMonitorDatabase
 
 
@@ -24,4 +23,4 @@ COPY init-influxdb.sh /docker-entrypoint-initdb.d/init-influxdb.sh
 RUN chmod +x /docker-entrypoint-initdb.d/init-influxdb.sh
 
 # Use the default CMD from the InfluxDB image
-#CMD ["influxd"]
+CMD ["influxd"]
