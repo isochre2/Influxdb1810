@@ -24,4 +24,4 @@ COPY init-influxdb.sh /docker-entrypoint-initdb.d/init-influxdb.sh
 RUN chmod +x /docker-entrypoint-initdb.d/init-influxdb.sh
 
 # Use the default CMD from the InfluxDB image
-CMD ["influxd"]
+#CMD ["influxd"]
