@@ -1,7 +1,5 @@
 #!/bin/bash
 
-exec influxd
-
 # Wait for InfluxDB to be ready
 until curl -s http://127.0.0.1:8086/ping; do
     echo "Waiting for InfluxDB to be ready..."
