@@ -6,12 +6,14 @@ ARG INFLUXDB_USER
 ARG INFLUXDB_PASSWORD
 
 # Set environment variables to configure InfluxDB on startup
+ENV DOCKER_INFLUXDB_INIT_MODE=setup
 ENV INFLUXDB_DB=PowerMonitorDatabase
-#ENV INFLUXDB_HTTP_FLUX_ENABLED=true NE PAS ACTIVER CA BUG
 ENV DOCKER_INFLUXDB_INIT_USERNAME=$INFLUXDB_USER
 ENV DOCKER_INFLUXDB_INIT_PASSWORD=$INFLUXDB_PASSWORD
 ENV DOCKER_INFLUXDB_INIT_ORG=CompagniePDC
 ENV DOCKER_INFLUXDB_INIT_BUCKET=PowerMonitoringBucket
+ENV INFLUXDB_HTTP_FLUX_ENABLED=true
+
 
 # Copy the init script into the container
 COPY init-influxdb.sh /docker-entrypoint-initdb.d/init-influxdb.sh
